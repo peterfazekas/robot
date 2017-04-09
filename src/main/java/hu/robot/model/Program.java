@@ -7,17 +7,16 @@ import java.util.Arrays;
  */
 public class Program {
 
-    public static final int LARGE_UNIT = 3;
-    public static final int SMALL_UNIT = 1;
+    private static final int LARGE_UNIT = 3;
+    private static final int SMALL_UNIT = 1;
     private static int counter;
 
-    private final String program;
     private final int id;
-
+    private final String program;
     private final Utility utility;
+    private final Coord coord;
     private double maxDistance;
     private int maxIndex;
-    private Coord coord;
 
     public Program(final String program) {
         this.program = program;
@@ -61,7 +60,7 @@ public class Program {
     public int getBattery() {
         int battery = LARGE_UNIT;
         for (int i = 0; i < program.length() - 1; i++) {
-            battery += utility.isActualCharSameAsThePrev(program, i) ? SMALL_UNIT : LARGE_UNIT;
+            battery += utility.isSameAsPrev(program, i) ? SMALL_UNIT : LARGE_UNIT;
         }
         return battery;
     }

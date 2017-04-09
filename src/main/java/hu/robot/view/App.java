@@ -8,21 +8,21 @@ import hu.robot.service.Robot;
 /**
  * @author Peter_Fazekas on 2017.04.09..
  */
-public class App {
+class App {
 
     private final DataLogger log;
     private final Robot robot;
     private final Console console;
 
-    public static void main(String[] args) {
-        App app = new App();
-        app.println();
-    }
-
     private App() {
         robot = new Robot("program.txt");
         log = new FileDataLogger("ujprog.txt");
         console = new Console();
+    }
+
+    public static void main(String[] args) {
+        App app = new App();
+        app.println();
     }
 
     private void println() {

@@ -5,7 +5,7 @@ package hu.robot.model;
  */
 public class Utility {
 
-    public boolean isActualCharSameAsThePrev(final String string, final int i) {
+    public boolean isSameAsPrev(final String string, final int i) {
         return string.charAt(i) == string.charAt(i + 1);
     }
 

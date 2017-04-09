@@ -11,14 +11,13 @@ import java.util.List;
  */
 public class Robot {
 
-    public static final int BATTERY_LIMIT = 100;
+    private static final int BATTERY_LIMIT = 100;
 
     private final List<Program> programList;
-    private final Data data;
     private final ConvertProgram convert;
 
     public Robot(final String source) {
-        data = new Data();
+        Data data = new Data();
         convert = new ConvertProgram();
         programList = data.getData(source);
     }
@@ -28,11 +27,9 @@ public class Robot {
                 .filter(i -> i.getId() == id)
                 .findFirst()
                 .get();
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("   a. feladat: A program %s%n", reducible(program)));
-        sb.append(String.format("   b. feladat: %s%n", program.getOrigin()));
-        sb.append(String.format("   c. feladat: %s", program));
-        return sb.toString();
+        return String.format("   a. feladat: A program %s%n", reducible(program))
+               + String.format("   b. feladat: %s%n", program.getOrigin())
+               + String.format("   c. feladat: %s", program);
     }
 
     private String reducible(Program program) {
