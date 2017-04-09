@@ -47,10 +47,6 @@ public class Program {
         }
     }
 
-    public String printProgramEnergy() {
-        return String.format("%n   %d %d", id, getBattery());
-    }
-
     public boolean isReducible() {
         return Arrays.stream(Direction.REDUCIBLES)
                 .mapToInt(i -> program.indexOf(i) + 1)
